@@ -1,5 +1,4 @@
 var graphql = require("graphql");
-var { buildSchema } = require("graphql");
 var PlantModel = require("../models/Plant");
 var TrefleTokenModel = require("../models/TrefleToken");
 var logger = require("morgan");
@@ -10,6 +9,7 @@ var {
   GraphQLNonNull,
   GraphQLString,
   GraphQLBoolean,
+  GraphQLList,
   GraphQLDate
 } = graphql;
 
@@ -50,29 +50,11 @@ const PlantType = new GraphQLObjectType({
   })
 });
 
-// const trefleTokenType = new GraphQLObjectType({
-//   name: "Plant",
-//   fields: () => ({
-//     id: {
-//       type: GraphQLString
-//     },
-//     refreshToken: {
-//       type: GraphQLString
-//     },
-//     apiKey: {
-//       type: GraphQLString
-//     },
-//     lastUpdated: {
-//       type: GraphQLDate
-//     }
-//   })
-// });
-
 const RootQuery = new GraphQLObjectType({
   name: "Query",
   fields: {
     plants: {
-      type: [PlantType],
+      type: GraphQLList(PlantType),
       resolve: () => {
         return plants;
       }

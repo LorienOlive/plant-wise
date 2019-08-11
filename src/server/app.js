@@ -4,7 +4,7 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const graphqlHTTP = require("express-graphql");
-const schema = require("./graphql/plantSchemas");
+const schema = require("./graphql/schema");
 const cors = require("cors");
 const bluebird = require("bluebird");
 
