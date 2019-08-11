@@ -9,6 +9,8 @@ var debug = require("debug")("server:server");
 var http = require("http");
 var env = require("dotenv");
 
+env.config();
+
 /**
  * Get port from environment and store in Express.
  */
