@@ -1,12 +1,18 @@
-var graphql = require("graphql");
 var graphqlTools = require("graphql-tools");
+const { gql } = require("apollo-server-express");
 var resolvers = require("./resolvers");
 
-var { GraphQLSchema, GraphQLObjectType } = graphql;
-
-const typeDefs = `
+const typeDefs = gql`
+  type Plant {
+    _id: ID!
+    name: String!
+    scientificName: String!
+    light: String!
+    water: String!
+    annual: Boolean!
+  }
   type Query {
-    plants: String!
+    plants: [Plant]
   }
 `;
 

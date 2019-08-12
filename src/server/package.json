@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "private": true,
   "description": "",
-  "main": "./bin/www",
+  "main": "app.js",
   "scripts": {
     "dev": "ts-node-dev",
     "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
     "build": "tsc",
-    "start": "node .",
+    "start": "node app.js",
     "server": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,6 +25,8 @@
     "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
+    "apollo-server": "^2.8.1",
+    "apollo-server-express": "^2.8.1",
     "bluebird": "^3.5.5",
     "body-parser": "^1.19.0",
     "concurrently": "^4.1.1",
@@ -38,6 +40,7 @@
     "graphql-date": "^1.0.3",
     "graphql-tools": "^4.0.5",
     "merge-graphql-schemas": "^1.7.0",
+    "mongodb": "^3.3.0-beta2",
     "mongoose": "^5.6.9",
     "morgan": "^1.9.1",
     "path": "^0.12.7"

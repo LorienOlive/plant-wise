@@ -1,7 +1,8 @@
 const query = {
   Query: {
     plants(root, args, context, info) {
-      return "I'm a plant!";
+      console.log(info);
+      return info;
     }
   }
 };

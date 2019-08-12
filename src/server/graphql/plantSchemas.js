@@ -1,105 +1,105 @@
-var graphql = require("graphql");
-var PlantModel = require("../models/Plant");
-var TrefleTokenModel = require("../models/TrefleToken");
-var logger = require("morgan");
+// var graphql = require("graphql");
+// var PlantModel = require("../models/Plant");
+// var TrefleTokenModel = require("../models/TrefleToken");
+// var logger = require("morgan");
 
-var {
-  GraphQLSchema,
-  GraphQLObjectType,
-  GraphQLNonNull,
-  GraphQLString,
-  GraphQLBoolean,
-  GraphQLList,
-  GraphQLDate
-} = graphql;
+// var {
+//   GraphQLSchema,
+//   GraphQLObjectType,
+//   GraphQLNonNull,
+//   GraphQLString,
+//   GraphQLBoolean,
+//   GraphQLList,
+//   GraphQLDate
+// } = graphql;
 
-// NOTE: Add Aliases for Queries & Enums
+// // NOTE: Add Aliases for Queries & Enums
 
-var fakePlantDatabase = [
-  {
-    id: "938470459386724598076",
-    name: "Jade Plant",
-    scientificName: "Jadus Plantus",
-    light: "full sun",
-    water: "semi-arid",
-    annual: false
-  }
-];
+// var fakePlantDatabase = [
+//   {
+//     _id: "938470459386724598076",
+//     name: "Jade Plant",
+//     scientificName: "Jadus Plantus",
+//     light: "full sun",
+//     water: "semi-arid",
+//     annual: false
+//   }
+// ];
 
-const PlantType = new GraphQLObjectType({
-  name: "Plant",
-  fields: () => ({
-    id: {
-      type: GraphQLString
-    },
-    name: {
-      type: GraphQLString
-    },
-    scientificName: {
-      type: GraphQLString
-    },
-    light: {
-      type: GraphQLString
-    },
-    water: {
-      type: GraphQLString
-    },
-    annual: {
-      type: GraphQLBoolean
-    }
-  })
-});
-
-const RootQuery = new GraphQLObjectType({
-  name: "Query",
-  fields: {
-    plants: {
-      type: GraphQLList(PlantType),
-      resolve: () => {
-        return plants;
-      }
-    }
-  }
-});
-
-// const mutation = graphql.GraphQLObjectType({
-//   name: "Mutation",
+// const PlantType = new GraphQLObjectType({
+//   name: "Plant",
 //   fields: () => ({
-//     addPlant: {
-//       plantType,
-//       args: {
-//         _id: {
-//           type: GraphQLNonNull(GraphQLString)
-//         },
-//         name: {
-//           type: GraphQLNonNull(GraphQLString)
-//         },
-//         scientificName: {
-//           type: GraphQLNonNull(GraphQLString)
-//         },
-//         light: {
-//           type: GraphQLNonNull(GraphQLString)
-//         },
-//         water: {
-//           type: GraphQLNonNull(GraphQLString)
-//         },
-//         annual: {
-//           type: GraphQLNonNull(GraphQLString)
-//         }
-//       },
-//       resolve: (root, params) => {
-//         const plantModel = new PlantModel(params);
-//         const newPlant = plantModel.save();
-//         if (!newPlant) {
-//           throw new Error("Error - AddPlant");
-//         }
-//         return newPlant;
-//       }
+//     _id: {
+//       type: GraphQLString
+//     },
+//     name: {
+//       type: GraphQLString
+//     },
+//     scientificName: {
+//       type: GraphQLString
+//     },
+//     light: {
+//       type: GraphQLString
+//     },
+//     water: {
+//       type: GraphQLString
+//     },
+//     annual: {
+//       type: GraphQLBoolean
 //     }
 //   })
 // });
 
-module.exports = new GraphQLSchema({
-  query: RootQuery
-  // mutation: mutation
-});
+// const RootQuery = new GraphQLObjectType({
+//   name: "Query",
+//   fields: {
+//     plants: {
+//       type: [PlantType],
+//       resolve: () => {
+//         return plants;
+//       }
+//     }
+//   }
+// });
+
+// // const mutation = graphql.GraphQLObjectType({
+// //   name: "Mutation",
+// //   fields: () => ({
+// //     addPlant: {
+// //       plantType,
+// //       args: {
+// //         _id: {
+// //           type: GraphQLNonNull(GraphQLString)
+// //         },
+// //         name: {
+// //           type: GraphQLNonNull(GraphQLString)
+// //         },
+// //         scientificName: {
+// //           type: GraphQLNonNull(GraphQLString)
+// //         },
+// //         light: {
+// //           type: GraphQLNonNull(GraphQLString)
+// //         },
+// //         water: {
+// //           type: GraphQLNonNull(GraphQLString)
+// //         },
+// //         annual: {
+// //           type: GraphQLNonNull(GraphQLString)
+// //         }
+// //       },
+// //       resolve: (root, params) => {
+// //         const plantModel = new PlantModel(params);
+// //         const newPlant = plantModel.save();
+// //         if (!newPlant) {
+// //           throw new Error("Error - AddPlant");
+// //         }
+// //         return newPlant;
+// //       }
+// //     }
+// //   })
+// // });
+
+// module.exports = new GraphQLSchema({
+//   query: RootQuery
+//   // mutation: mutation
+// });
