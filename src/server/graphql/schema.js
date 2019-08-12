@@ -1,6 +1,4 @@
-var graphqlTools = require("graphql-tools");
 const { gql } = require("apollo-server-express");
-var resolvers = require("./resolvers");
 
 const typeDefs = gql`
   type Plant {
@@ -12,11 +10,9 @@ const typeDefs = gql`
     annual: Boolean!
   }
   type Query {
-    plants: [Plant]
+    hello: String
+    allPlants: [Plant]
   }
 `;
 
-module.exports = graphqlTools.makeExecutableSchema({
-  typeDefs,
-  resolvers
-});
+module.exports = typeDefs;
