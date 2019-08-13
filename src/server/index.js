@@ -7,7 +7,6 @@ const bodyParser = require("body-parser");
 const typeDefs = require("./graphql/schema");
 const resolvers = require("./graphql/resolvers");
 
-// Mongo & Apollo server setup
 function main() {
   const db = mongoose.connection;
   mongoose
@@ -26,30 +25,14 @@ function main() {
     }
   });
 
-  const app = express(); // Export app for other routes to use
+  const app = express();
 
   app.use(
     bodyParser.urlencoded({
-      // Middleware
       extended: true
     })
   );
   app.use(bodyParser.json());
-
-  //   app.get("/plants", (req, res) => {
-  //     fetch("https://trefle.io/api/plants", {
-  //       method: "POST",
-  //       headers: {
-  //         Authorization: `Bearer ${env.TREFLE_ACCESS_TOKEN}`
-  //       }
-  //     })
-  //       .then(res => res.json())
-  //       .then(plants => {
-  //         console.log(plants);
-  //         res.send(plants);
-  //       })
-  //       .catch(err => console.log("Trefle getPlants: ", err));
-  //   });
 
   server.applyMiddleware({ app });
 
