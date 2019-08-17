@@ -14,7 +14,8 @@ interface IPlantProps {
 const PlantItem: React.FC<IPlantProps> = (props: IPlantProps) => {
   console.log(props.plant);
   const plantDetail = props.plant;
-  return <div key={props.plant.id}>{plantDetail.common_name}</div>;
+  return <div key={props.plant.id}>{plantDetail
+    .common_name}</div>;
 };
 
 export default PlantItem;
