@@ -1,19 +1,22 @@
-// const mongoose = require("mongoose");
-// const { ObjectID } = require("mongodb");
+const mongoose = require("mongoose");
+const { ObjectID } = require("mongodb");
 
-// const Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
-// ObjectID.prototype.valueOf = function() {
-//   return this.toString();
-// };
+ObjectID.prototype.valueOf = function() {
+  return this.toString();
+};
 
-// const PlantSchema = new Schema({
-//   id: Int,
-//   slug: String,
-//   scientific_name: String,
-//   link: String,
-//   complete_data: Boolean,
-//   common_name: String
-// });
+const PlantSchema = new Schema({
+  id: Int,
+  slug: String,
+  scientific_name: String,
+  link: String,
+  complete_data: Boolean,
+  common_name: String,
+  images: {
+    url: String
+  }
+});
 
-// module.export = mongoose.model("Plant", PlantSchema);
+module.export = mongoose.model("Plant", PlantSchema);

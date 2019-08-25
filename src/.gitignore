@@ -89,3 +89,5 @@ typings/
 
 # Storybook
 .storybook/
+
+app-env

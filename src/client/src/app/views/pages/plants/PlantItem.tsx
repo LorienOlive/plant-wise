@@ -12,8 +12,12 @@ export interface IPlantProps {
     link: string;
     complete_data: boolean;
     common_name: string;
+    images: {
+      url: string;
+    }
   };
 }
+
 
 const PlantItem: React.FC<IPlantProps> = (props: IPlantProps) => {
   const plantDetail = props.plant;
@@ -21,6 +25,7 @@ const PlantItem: React.FC<IPlantProps> = (props: IPlantProps) => {
     <ListItem key={plantDetail.id} size="large">
       <Wrapper>
         <Header>{plantDetail.common_name}</Header>
+        <div>{plantDetail.link}</div>
       </Wrapper>
     </ListItem>
   );
@@ -37,3 +42,8 @@ const Header = styled.h2`
   font-size: 2em;
   font-weight: 700;
 `;
+
+const Image = styled.img`
+  width: 50px;
+  height:  50px;
+`

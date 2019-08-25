@@ -8,6 +8,7 @@ const typeDefs = require("./graphql/schema");
 const resolvers = require("./graphql/resolvers");
 
 const db = mongoose.connection;
+
 mongoose
   .connect("mongodb://localhost:27017/plantwise", {
     useNewUrlParser: true,
