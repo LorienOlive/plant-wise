@@ -19,7 +19,6 @@ const GET_PLANTS = gql`
 
 const Plants = () => {
   const { loading, error, data } = useQuery(GET_PLANTS);
-  console.log(loading, error, data);
   if (error) return <div>Oooops</div>;
   if (loading) return <p>Loading Plants ...</p>;
 
@@ -36,7 +35,7 @@ const Plants = () => {
             link: string;
             complete_data: boolean;
             common_name: string;
-          }) => <PlantItem plant={plant} />
+          }) => <PlantItem key={plant.id} plant={plant} />
         )}
     </div>
   );
