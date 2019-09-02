@@ -2,24 +2,24 @@ import React from "react";
 import { useQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 
-const GET_ONE_PLANT = gql`
+const GET_ONE_SPECIES = gql`
   query {
-    onePlant {
+    oneSpecies {
       id
-      slug
-      scientific_name
-      link
-      complete_data
+      type
       common_name
+      images {
+        url
+      }
     }
   }
 `;
 
-function PlantQuery() {
-  const { loading, error, data } = useQuery(GET_ONE_PLANT);
+function SpeciesItemQuery() {
+  const { loading, error, data } = useQuery(GET_ONE_SPECIES);
   if (loading) return <p>Loading Plant ...</p>;
   try {
-    return data.plant;
+    return data.speciesItem;
   } catch {
     console.log(error);
     return error;
@@ -27,6 +27,6 @@ function PlantQuery() {
 }
 
 export default {
-  action: GET_ONE_PLANT,
-  query: PlantQuery
+  action: GET_ONE_SPECIES,
+  query: SpeciesItemQuery
 };

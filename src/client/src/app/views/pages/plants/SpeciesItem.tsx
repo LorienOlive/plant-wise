@@ -4,32 +4,34 @@ import styled from "styled-components";
 import ListItem from "../../../components/List/ListItem";
 // import GridItem from "../../../components/Grid/GridItem";
 
-export interface IPlantProps {
-  plant: {
+export interface ISpeciesProps {
+  speciesItem: {
     id: string;
-    slug: string;
-    scientific_name: string;
-    link: string;
-    complete_data: boolean;
     common_name: string;
+    images: {
+      url: string;
+    }
   };
 }
 
+
+
 /// this is th name of the constant, the type it is, the props that belond to it
-const PlantItem: React.FC<IPlantProps> = (props: IPlantProps) => {
-  const plantDetail = props.plant;
+const SpeciesItem: React.FC<ISpeciesProps> = (props: ISpeciesProps) => {
+  const speciesItemDetail = props.speciesItem;
+  console.log('////', speciesItemDetail.images);
+  const speciesId = speciesItemDetail.id;
   return (
-    <ListItem key={plantDetail.id} size="large">
+    <ListItem key={speciesItemDetail.common_name} size="large">
       <Wrapper>
-        <Header>{plantDetail.common_name}</Header>
-        <p>{plantDetail.scientific_name}</p>
-        <div>{plantDetail.link}</div>
+        <Header>{speciesItemDetail.common_name}</Header>
+        <p>{speciesItemDetail.id}</p>
       </Wrapper>
     </ListItem>
   );
 };
 
-export default PlantItem;
+export default SpeciesItem;
 
 const Wrapper = styled.div`
   width: 100%;
